@@ -4,8 +4,6 @@ var router = express.Router();
 const handleErrorAsync = require("../service/handleErrorAsync");
 const PostsControllers = require("../controllers/posts");
 
-
-
 router.get('/posts', handleErrorAsync(PostsControllers.getAllPosts));
 
 router.post('/post', handleErrorAsync(PostsControllers.createdPosts));
