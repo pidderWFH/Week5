@@ -39,7 +39,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Peter2\",\r\n    \"content\": \"今天天氣不錯2\"\r\n\r\n}",
+					"raw": "{\r\n    \"user\": \"629dcb9dabae0bec667122a7\",\r\n    \"content\": \"新增貼文1\",\r\n    \"tags\": \"心情1\",\r\n    \"type\": \"group\"\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -47,15 +47,15 @@
 					}
 				},
 				"url": {
-					"raw": "https://enigmatic-sands-83230.herokuapp.com/posts",
+					"raw": "https://metawall-week5.herokuapp.com/post",
 					"protocol": "https",
 					"host": [
-						"enigmatic-sands-83230",
+						"metawall-week5",
 						"herokuapp",
 						"com"
 					],
 					"path": [
-						"posts"
+						"post"
 					]
 				}
 			},
@@ -68,7 +68,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \r\n    \"content\": \"修改貼文987\",\r\n    \"tags\": \"666\",\r\n    \"type\": \"group\",\r\n    \"likes\": 300\r\n}",
+					"raw": "{\r\n    \r\n    \"content\": \"修改貼文1\",\r\n    \"tags\": \"666\",\r\n    \"type\": \"group\",\r\n    \"likes\": 300\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -76,18 +76,16 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:3000/post/6295b9e41b2fae8ffd8458c8",
-					"protocol": "http",
+					"raw": "https://metawall-week5.herokuapp.com/post/62a094dc7f082d1372b23717",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"metawall-week5",
+						"herokuapp",
+						"com"
 					],
-					"port": "3000",
 					"path": [
 						"post",
-						"6295b9e41b2fae8ffd8458c8"
+						"62a094dc7f082d1372b23717"
 					]
 				}
 			},
@@ -99,16 +97,16 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://enigmatic-sands-83230.herokuapp.com/posts/62838c7ed7f14442ef03785c",
+					"raw": "https://metawall-week5.herokuapp.com/post/62a094dc7f082d1372b23717",
 					"protocol": "https",
 					"host": [
-						"enigmatic-sands-83230",
+						"metawall-week5",
 						"herokuapp",
 						"com"
 					],
 					"path": [
-						"posts",
-						"62838c7ed7f14442ef03785c"
+						"post",
+						"62a094dc7f082d1372b23717"
 					]
 				}
 			},
@@ -120,10 +118,10 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://enigmatic-sands-83230.herokuapp.com/posts",
+					"raw": "https://metawall-week5.herokuapp.com/posts",
 					"protocol": "https",
 					"host": [
-						"enigmatic-sands-83230",
+						"metawall-week5",
 						"herokuapp",
 						"com"
 					],
