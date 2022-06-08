@@ -1,6 +1,7 @@
 const appError = require("../service/appError");
 const Post = require("../model/posts");
 const User = require("../model/users");
+const mongoose = require("mongoose");
 
 const posts = {
     // async getAllPosts(req, res){
@@ -47,6 +48,8 @@ const posts = {
         
     },
     async deleteAllPosts(req, res, next){
+        
+        if(req.originalUrl === "/posts/") return appError(404, "無此路由", next);
         const posts = await Post.deleteMany({});
         // handle.handleSucess(res, posts);
         res.status(200).send({ posts });
@@ -54,13 +57,17 @@ const posts = {
     async deleteOnePosts(req, res, next){
         
         const id = req.params.id;
+        //判斷id是否有正確格式  
+        if( ! mongoose.isObjectIdOrHexString(id)) {
+            return appError(400, "刪除貼文id格式錯誤", next);
+        }
+        
         deleteOne = await Post.findByIdAndDelete(id);
-
         if (deleteOne){
             const post = await Post.find();
             res.status(200).send({ post });
         }else{
-            return next(appError(4003, "無此使用者貼文", next));
+            return next(appError(400, "無此貼文", next));
         }
         
     },
@@ -68,9 +75,20 @@ const posts = {
         
         const id = req.params.id;
         const { body } = req;
-        let { name, content, tags, type, likes } = body;
-        if (body.user.trim() && body.content.trim()){
-            return next(appError(4002, "欄位不能為空白", next));
+
+        //判斷id是否有正確格式  
+        if( ! mongoose.isObjectIdOrHexString(id)) {
+            return appError(400, "修改貼文id格式錯誤", next);
+        }
+        // let { name, content, tags, type, likes } = body;
+        if( !body.content ){
+            return appError(400, "未填必填欄位", next);
+        }
+
+        if( !body.content.trim() ){
+  
+            // serviceHandle.handleError(res, errCode=401, "欄位不能空白");
+            return appError(400, "欄位不能為空白", next);
         }
 
         const patchPost = await Post.findByIdAndUpdate
@@ -78,7 +96,11 @@ const posts = {
             id,
             { $set: 
                 {
-                    name, content, tags, type, likes
+                    
+                    content: body.content,
+                    tags: body.tags,
+                    type: body.type,
+                    
                 }
             },
             { 
@@ -87,13 +109,11 @@ const posts = {
         );
 
 
-       
-
-        if (patchPost === null){
-            return next(appError(4001, "無此使用者", next));
-        }else {
+        if (patchPost){
             // handle.handleSucess(res, post);
-            res.status(200).send({ post });
+            res.status(200).send({ patchPost });
+        }else {
+            return next(appError(400, "修改貼文失敗，無此貼文", next));
         } 
     },
 }

@@ -6,6 +6,7 @@ const postSchema = new mongoose.Schema(
     content: {
       type: String,
       //必填加入required
+      trim: true,
       required: [true, '內文未填寫']
     },
     image: {
@@ -43,7 +44,7 @@ const postSchema = new mongoose.Schema(
 );
 //model collection 會自動將第一個字母小寫並且會變成複數(+s)
 //postSchema 規範資料格式
-const Post = mongoose.model('Post', postSchema);
+const Post = mongoose.model('post', postSchema);
 // const init = async()=>{
 //     await減少巢狀結構
 //         const AllPost =  await Post.find();
