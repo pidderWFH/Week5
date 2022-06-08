@@ -96,11 +96,9 @@ const posts = {
             id,
             { $set: 
                 {
-                    
                     content: body.content,
                     tags: body.tags,
                     type: body.type,
-                    
                 }
             },
             { 
