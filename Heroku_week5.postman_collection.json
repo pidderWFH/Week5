@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "a8ce2297-8350-4757-937b-b5145f2c2dbd",
+		"name": "Heroku_week5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19763572"
+	},
+	"item": [
+		{
+			"name": "取得所有貼文",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://metawall-week5.herokuapp.com/posts?timeSort=desc",
+					"protocol": "https",
+					"host": [
+						"metawall-week5",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "timeSort",
+							"value": "desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增貼文",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Peter2\",\r\n    \"content\": \"今天天氣不錯2\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://enigmatic-sands-83230.herokuapp.com/posts",
+					"protocol": "https",
+					"host": [
+						"enigmatic-sands-83230",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "編輯貼文",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"content\": \"修改貼文987\",\r\n    \"tags\": \"666\",\r\n    \"type\": \"group\",\r\n    \"likes\": 300\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/post/6295b9e41b2fae8ffd8458c8",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"post",
+						"6295b9e41b2fae8ffd8458c8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除單筆貼文",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://enigmatic-sands-83230.herokuapp.com/posts/62838c7ed7f14442ef03785c",
+					"protocol": "https",
+					"host": [
+						"enigmatic-sands-83230",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts",
+						"62838c7ed7f14442ef03785c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除所有貼文",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://enigmatic-sands-83230.herokuapp.com/posts",
+					"protocol": "https",
+					"host": [
+						"enigmatic-sands-83230",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
